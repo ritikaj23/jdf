@@ -120,7 +120,7 @@ function fillProductId(count) {
     suggestion = document.getElementById(`OrderSuggestion${count}`);
     productId = document.getElementById(`orderProductName${count}`).value
     if (productId.trim() !== '') {
-        let url = `http://localhost:8080/inventory/search/${productId}/${storeId}`;
+        let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/inventory/search/${productId}/${storeId}`;
         fetch(url, {
             method: "GET",
             headers: { "content-type": "application/json" },
@@ -204,7 +204,7 @@ function validateStoreId(event) {
 
     let submitButton = document.getElementById('submitButton');
     let storeId = document.getElementById('orderStoreId');
-    let url = `http://localhost:8080/store/validate/${storeId.value}`
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/store/validate/${storeId.value}`
     fetch(url, {
         method: "GET",
         headers: { "content-type": "application/json" },
@@ -236,7 +236,7 @@ function addStore(event) {
 
     let data = { name: storeName, address: storeAddress };
 
-    let url = "http://localhost:8080/store"
+    let url = "https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/store"
     fetch(url, {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -265,7 +265,7 @@ function viewProduct(event) {
     storeId = inputstoreId.value;
     inputstoreId.disabled = true;
 
-    let url = `http://localhost:8080/inventory/${storeId}`;
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/inventory/${storeId}`;
     fetch(url, {
         method: "GET",
         headers: { "content-type": "application/json" },
@@ -302,7 +302,7 @@ function filter() {
     let storeId = document.getElementById('vstoreId').value;
 
 
-    let url = `http://localhost:8080/inventory/filter/${category}/${productName}/${storeId}`;
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/inventory/filter/${category}/${productName}/${storeId}`;
     fetch(url, {
         method: "GET",
         headers: { "content-type": "application/json" },
@@ -406,7 +406,7 @@ async function createData(products, storeId) {
 
 function viewProductByid(productId) {
 
-    let url = `http://localhost:8080/product/product/${productId}`;
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/product/product/${productId}`;
     fetch(url, {
         method: "GET",
         headers: { "content-type": "application/json" },
@@ -463,7 +463,7 @@ function updateProduct(event) {
     let data = { product: ProductModel, inventory: InventoryModel };
 
     console.log(data);
-    let url = `http://localhost:8080/inventory`;
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/inventory`;
     fetch(url, {
         method: "PUT",
         headers: { "content-type": "application/json" },
@@ -483,7 +483,7 @@ function updateProduct(event) {
 function fillProductName() {
     let productName = document.getElementById('productName').value;
     if (productName.trim() != "") {
-        let url = `http://localhost:8080/product/searchProduct/${productName}`;
+        let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/product/searchProduct/${productName}`;
         fetch(url, {
             method: "GET",
             headers: { "content-type": "application/json" },
@@ -548,7 +548,7 @@ function addProductToInventory(event) {
     stockLevel = document.getElementById('astockLevel').value;
 
     let data = { product: { id: productId }, store: { id: storeId }, stockLevel: stockLevel };
-    let url = "http://localhost:8080/inventory"
+    let url = "https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/inventory"
     fetch(url, {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -566,7 +566,7 @@ function addProductToInventory(event) {
 
 
 function viewProductList() {
-    let url = `http://localhost:8080/product`;
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/product`;
     fetch(url, {
         method: "GET",
         headers: { "content-type": "application/json" },
@@ -683,7 +683,7 @@ function deleteItembyId(id) {
  
 
 
-    let url = `http://localhost:8080/product/${id}`;
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/product/${id}`;
     fetch(url, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
@@ -703,7 +703,7 @@ function deleteItembyId(id) {
 }
 
 function removeFromInventory(id) {
-    let url = `http://localhost:8080/inventory/${id}`
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/inventory/${id}`
     fetch(url, {
         method: "DELETE",
         headers: { "content-type": "application/json" },
@@ -741,7 +741,7 @@ async function filterParentProduct() {
         productName=null;
     }
 
-    let url = `http://localhost:8080/product/category/${productName}/${category}`;
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/product/category/${productName}/${category}`;
     fetch(url, {
         method: "GET",
         headers: { "content-type": "application/json" },
@@ -762,7 +762,7 @@ async function filterParentProduct() {
 
 function getProductByid(productId) {
 
-    let url = `http://localhost:8080/product/product/${productId}`;
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/product/product/${productId}`;
     fetch(url, {
         method: "GET",
         headers: { "content-type": "application/json" },
@@ -802,7 +802,7 @@ function updateParentProduct(event) {
     category = document.getElementById('pcategory').value;
     price = document.getElementById('pproductPrice').value;
     sku = document.getElementById('pSKU').value;
-    let url = "http://localhost:8080/product"
+    let url = "https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/product"
     data = { id: productId, name: productName, category: category, price: price, sku: sku };
     fetch(url, {
         method: "PUT",
@@ -829,7 +829,7 @@ function addParentProduct(event) {
 
     let data = { name: productName, category: category, price: productPrice, sku: SKU };
 
-    let url = "http://localhost:8080/product"
+    let url = "https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/product"
     fetch(url, {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -854,7 +854,7 @@ function validateQuantity(OrderNo) {
     if (!quantity || !productId || !storeId) {
         return;
     }
-    let url = `http://localhost:8080/inventory/validate/${quantity}/${storeId}/${productId}`
+    let url = `https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/inventory/validate/${quantity}/${storeId}/${productId}`
     fetch(url, {
         method: "GET",
         headers: { "content-type": "application/json" }
@@ -924,7 +924,7 @@ async function placeOrder(event) {
 
 
     try {
-        const response = await fetch('http://localhost:8080/store/placeOrder', {
+        const response = await fetch('https://ritikaj-8080.theiadockernext-0-labs-prod-theiak8s-4-tor01.proxy.cognitiveclass.ai/store/placeOrder', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
